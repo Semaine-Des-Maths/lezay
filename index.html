@@ -240,32 +240,35 @@
     document.addEventListener("DOMContentLoaded", function () {
         let chargementEnCours = false; // Empêche les actions multiples simultanées
         let derniereInteraction = 0; // Pour limiter les clics rapides
-        const delai = 500; // Délai minimal entre deux clics en ms
+        const delai = 300; // Délai minimal entre deux clics en ms
+
+        // Fonction pour gérer les clics avec délai
+        function gererClicAvecDelai(event) {
+            let maintenant = Date.now();
+            
+            // Vérifie si un chargement est en cours ou si le clic est trop rapide
+            if (chargementEnCours || maintenant - derniereInteraction < delai) {
+                event.preventDefault(); // Bloque l'action du lien si spam
+                return;
+            }
+
+            chargementEnCours = true;
+            derniereInteraction = maintenant;
+
+            const boutonClique = this;
+            boutonClique.disabled = true; // Désactive temporairement le bouton
+            
+            setTimeout(() => {
+                boutonClique.disabled = false; // Réactive après un court délai
+                chargementEnCours = false;
+            }, delai); // Délai de 300ms pour éviter trop de clics
+        }
 
         // Sélectionne tous les boutons dans le document
-        const boutons = document.querySelectorAll(".buttons-container button");
+        const boutons = document.querySelectorAll(".buttons-container button, .inner button");
 
         boutons.forEach(bouton => {
-            bouton.addEventListener("click", function (event) {
-                let maintenant = Date.now();
-                
-                // Vérifie si un chargement est en cours ou si le clic est trop rapide
-                if (chargementEnCours || maintenant - derniereInteraction < delai) {
-                    event.preventDefault(); // Bloque l'action du lien si spam
-                    return;
-                }
-
-                chargementEnCours = true;
-                derniereInteraction = maintenant;
-
-                const boutonClique = this;
-                boutonClique.disabled = true; // Désactive temporairement le bouton
-                
-                setTimeout(() => {
-                    boutonClique.disabled = false; // Réactive après un court délai
-                    chargementEnCours = false;
-                }, 1000); // Délai de 1 seconde pour éviter trop de clics
-            });
+            bouton.addEventListener("click", gererClicAvecDelai);
         });
     });
 </script>
