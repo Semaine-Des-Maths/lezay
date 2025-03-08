@@ -195,10 +195,7 @@
 				   line-height: 2.86 /* Ajuste la hauteur de ligne pour centrer le texte verticalement */
 			   }
 
-			   /* Supprime le soulignement des liens autour des boutons */
-			   .buttons-container a {
-				   text-decoration: none; /* Supprime le soulignement du lien autour du bouton */
-			   }
+			
 			 </style>
             
 			<style>
@@ -209,49 +206,13 @@
 					user-select: none;
 					touch-action: manipulation; /* Optimise le comportement du bouton sur mobile */
 				}
-				.buttons-container a {
-                 text-decoration: none; /* Supprime le soulignement du lien autour du bouton */
-}
-
+			
 				button:focus {
 					outline: none;
 					box-shadow: none; /* Supprime l'effet de focus */
 				}
 			</style>
 			
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					// Sélectionne tous les liens de navigation
-					const navLinks = document.querySelectorAll("nav ul li a, .buttons-container a");
-
-					navLinks.forEach(link => {
-						link.addEventListener("click", function (event) {
-							// Empêche le comportement par défaut du lien
-							event.preventDefault();
-
-							// Sélectionne tous les articles
-							const articles = document.querySelectorAll("article");
-
-							// Ferme tous les articles
-							articles.forEach(article => {
-								article.style.display = "none";
-							});
-
-							// Ouvre l'article correspondant au lien cliqué
-							const targetArticle = document.querySelector(this.getAttribute("href"));
-							if (targetArticle) {
-								targetArticle.style.display = "block";
-							}
-						});
-					 });
-
-					// Ouvre le premier article par défaut
-					const firstArticle = document.querySelector("article");
-					if (firstArticle) {
-						firstArticle.style.display = "block";
-					}
-				});
-			</script>
 			
 	   <!-- BG -->
 		   <div id="bg"></div>
