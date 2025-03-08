@@ -192,7 +192,7 @@
 
 				   /* Centrer le texte horizontalement et verticalement */
 				   text-align: center; /* Centre le texte horizontalement */
-				   line-height: 2.86 /* Ajuste la hauteur de ligne pour centrer le texte verticalement */
+				   line-height: 2.86; /* Ajuste la hauteur de ligne pour centrer le texte verticalement */
 				   -webkit-tap-highlight-color: transparent; /* Désactive l'effet bleu au clic sur mobile */
 			   }
 
@@ -215,6 +215,11 @@
 				button:focus {
 					outline: none;
 					box-shadow: none; /* Supprime l'effet de focus */
+				}
+
+				/* Désactive l'effet bleu au clic sur mobile */
+				button, a {
+					-webkit-tap-highlight-color: transparent; /* Désactive l'effet bleu au clic sur mobile */
 				}
 			</style>
 			
