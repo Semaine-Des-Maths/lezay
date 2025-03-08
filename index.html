@@ -200,15 +200,19 @@
             
 			<style>
 				button {
-					outline: none;
-					-webkit-tap-highlight-color: transparent;
+					outline: none; /* Supprime le contour bleu */
+					-webkit-tap-highlight-color: transparent; /* Désactive l'effet bleu au clic sur mobile */
+					-webkit-user-select: none; /* Empêche la sélection du texte sur mobile */
+					user-select: none;
+					touch-action: manipulation; /* Optimise le comportement du bouton sur mobile */
 				}
 			
 				button:focus {
 					outline: none;
-					box-shadow: none;
+					box-shadow: none; /* Supprime l'effet de focus */
 				}
 			</style>
+			
 			
 	   <!-- BG -->
 		   <div id="bg"></div>
