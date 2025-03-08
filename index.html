@@ -245,6 +245,30 @@
 						});
 					});
 
+					 // Sélectionne tous les boutons de navigation
+        const navButtons = document.querySelectorAll(".buttons-container a");
+
+        navButtons.forEach(button => {
+            button.addEventListener("click", function (event) {
+                // Empêche le comportement par défaut du lien
+                event.preventDefault();
+
+                // Sélectionne tous les articles
+                const articles = document.querySelectorAll("article");
+
+                // Ferme tous les articles
+                articles.forEach(article => {
+                    article.style.display = "none";
+                });
+
+                // Ouvre l'article correspondant au bouton cliqué
+                const targetArticle = document.querySelector(this.getAttribute("href"));
+                if (targetArticle) {
+                    targetArticle.style.display = "block";
+                }
+            });
+        });
+
 					// Ouvre le premier article par défaut
 					const firstArticle = document.querySelector("article");
 					if (firstArticle) {
