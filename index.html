@@ -194,6 +194,10 @@
 			 </style>
             
 			<style>
+				button, button:focus, button:hover, button:active {
+					outline: none !important; /* Supprime le contour par défaut */
+				}
+			
 				button {
 					outline: none; /* Supprime le contour bleu */
 					-webkit-tap-highlight-color: transparent; /* Désactive l'effet bleu au clic sur mobile */
@@ -203,8 +207,7 @@
 				}
 			
 				button:focus {
-					outline: none;
-					box-shadow: none; /* Supprime l'effet de focus */
+					outline: none; /* Supprime le contour par défaut */
 				}
 
 				/* Désactive l'effet bleu au clic sur mobile */
@@ -262,5 +265,12 @@
         });
     });
 </script>
+
+<style>
+    article {
+        padding-bottom: 20px; /* Ajoute de l'espace en bas de chaque article */
+        margin-bottom: 20px; /* Ajoute de l'espace en bas de chaque article */
+    }
+</style>
 
 </html>
