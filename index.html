@@ -23,12 +23,13 @@
 						   
 							<style>
 							  .fa-divide {
-								   font-size: 2.25em; /* Ajuste la taille pour changer la hauteur */
-								   margin-top: 24px; /* Ajuste la marge supérieure */
+								   font-size: 2em; /* Ajuste la taille pour changer la hauteur */
+								   margin-top: 23.5px; /* Ajuste la marge supérieure */
 								   display: inline-block;
 								   color: #ffffff; /* Assurez-vous que la couleur est visible */
 								   background: none; /* Supprime tout fond qui pourrait créer un cercle */
 								   border: none; /* Supprime toute bordure qui pourrait créer un cercle */
+								   vertical-align: 15px; /* Centre verticalement l'icône */
 							   }
 						   </style>
 
@@ -310,7 +311,7 @@
 <div id="rick-roll" style="display:none;">
     <div id="videoContainer" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: black; z-index: 1000; display: flex; justify-content: center; align-items: center;">
         <video id="videoRickRoll" style="max-width: 80%; max-height: 80%;">
-            <source src="vidéo/rick-roll.mp4" type="video/mp4">
+            <source src="images/rick-roll.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la balise vidéo.
         </video>
         <button id="closeVideo" style="position: absolute; bottom: 10px; right: 10px; z-index: 1001; background-color: rgba(255, 0, 0, 0.8); color: black; border: none; padding: 10px; cursor: pointer; border-radius: 5px;">Sortir</button>
@@ -355,6 +356,35 @@
       z-index: 1000;
       background-color: black;
   }
+</style>
+
+<style>
+.logo {
+    position: relative; /* Assurez-vous que le conteneur parent est positionné relativement */
+    width: 120px; /* Largeur du cercle */
+    height: 120px; /* Hauteur du cercle */
+    border-radius: 50%; /* Cercle */
+    background-color: blue; /* Couleur de fond */
+    margin: 0 auto; /* Centre horizontalement dans le parent */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre pour effet visuel */
+}
+
+#division-icon {
+    position: absolute; /* Position absolue par rapport au conteneur parent */
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste pour centrer parfaitement */
+    display: inline-block; /* Assurez-vous que l'élément est en ligne */
+    text-align: center; /* Centre le contenu horizontalement */
+    line-height: 120px; /* Centre le contenu verticalement */
+    z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+@media (min-width: 768px) {
+    #division-icon {
+        margin-top: 20px; /* Ajuste la marge supérieure pour les écrans plus larges */
+    }
+}
 </style>
 
 </html>
