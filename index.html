@@ -17,14 +17,18 @@
 			   <!-- Header -->
 				   <header id="header">
 					   <div class="logo">
-						   <a href="https://dotfic.com/zDyk" target="_blank">
+						   <a href="#" id="division-icon">
 							   <i class="fas fa-divide"></i>
 						   </a>
+						   
 							<style>
 							  .fa-divide {
-								   font-size: 1.65em; 
-								   margin-top: 22.5px;
+								   font-size: 2em; /* Ajuste la taille pour changer la hauteur */
+								   margin-top: 28px; /* Ajuste la marge supérieure */
 								   display: inline-block;
+								   color: #fff; /* Assurez-vous que la couleur est visible */
+								   background: none; /* Supprime tout fond qui pourrait créer un cercle */
+								   border: none; /* Supprime toute bordure qui pourrait créer un cercle */
 							   }
 						   </style>
 
@@ -128,7 +132,7 @@
 					   <!-- jeux 5 -->
 					   <article id="5">
 						<h2 class="major">
-							<img src="images/Pkangaroo.png" style="width: 1.4em; vertical-align: middle; position: relative; top: -0.2em;"> Math'Kang
+							<img src="images/Pkangaroo.png" alt="Logo Math'Kang" style="width: 1.4em; vertical-align: middle; position: relative; top: -0.2em;"> Math'Kang
 						</h2>
 						
 						<p>
@@ -300,5 +304,68 @@
 </style>
 
 
+</style>
+
+<!-- Section Rick Roll -->
+<div id="rick-roll" style="display:none;">
+    <div id="videoContainer" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: black; z-index: 1000; display: flex; justify-content: center; align-items: center;">
+        <video id="videoRickRoll" style="max-width: 80%; max-height: 80%;">
+            <source src="vidéo/rick-roll.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+        <button id="closeVideo" style="position: absolute; bottom: 10px; right: 10px; z-index: 1001; background-color: rgba(255, 0, 0, 0.8); color: black; border: none; padding: 10px; cursor: pointer; border-radius: 5px;">Sortir</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById('closeVideo').addEventListener('click', function() {
+        const videoContainer = document.getElementById('videoContainer');
+        const video = document.getElementById('videoRickRoll');
+        video.pause(); // Arrête la vidéo
+        document.getElementById('rick-roll').style.display = 'none'; // Cache la section Rick Roll
+    });
+
+    document.querySelector('#division-icon').addEventListener('click', function(event) {
+        event.preventDefault(); // Empêche le lien de rediriger
+        const videoContainer = document.getElementById('videoContainer');
+        const video = document.getElementById('videoRickRoll');
+        document.getElementById('rick-roll').style.display = 'block'; // Affiche la section Rick Roll
+        video.play(); // Joue la vidéo
+    });
+</script>
+
+<!--
+<script>
+    document.querySelector('.buttons-container a[href="#1"] button').addEventListener('click', function(event) {
+        event.preventDefault(); // Empêche le lien de rediriger
+        const video = document.getElementById('videoRickRoll');
+        video.style.display = 'block'; // Affiche la vidéo
+        video.play(); // Joue la vidéo
+    });
+</script>
+-->
+
+<style>
+  #videoRickRoll {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      background-color: black;
+  }
+</style>
+
+<style>
+#division-icon {
+    display: inline-block;
+    width: 85px; /* Assurez-vous que la largeur et la hauteur sont égales */
+    height: 85px; /* Assurez-vous que la largeur et la hauteur sont égales */
+    text-align: center; /* Centre l'icône à l'intérieur */
+    line-height: 70px; /* Centre verticalement l'icône */
+    border-radius: 50%; /* Rend la zone cliquable circulaire */
+    background-color: transparent; /* Assurez-vous que le fond est transparent */
+}
 </style>
 </html>
